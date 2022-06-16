@@ -3,7 +3,7 @@ const axios = require('axios');
 
 exports.homeRoutes = (req, res) => {
      // Make a get request to /api/users // exports this function so you can use it in other files
-    axios.get('http://localhost:3000/api/users')
+    axios.get('https://crud-app-sales.herokuapp.com/')
         .then(function(response){
             res.render('index', { users : response.data });
         })
@@ -21,7 +21,7 @@ exports.add_user = (req, res) =>{
 // this returns all data from DB into the form for updating
 
 exports.update_user = (req, res) =>{
-    axios.get('https://git.heroku.com/crud-app-sales.git', { params : { id : req.query.id }})
+    axios.get('https://crud-app-sales.herokuapp.com/', { params : { id : req.query.id }})
         .then(function(userdata){
             res.render("update_user", { user : userdata.data})
         })
